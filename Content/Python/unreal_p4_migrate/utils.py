@@ -190,6 +190,12 @@ def is_plugin_asset(asset_path):
                    )
 
 
+def get_ue_version_as_float():
+    version = ue.SystemLibrary.get_engine_version()
+    tokens = version.split(".")
+    return float("{}.{}".format(tokens[0], tokens[1]))
+
+
 def get_cached_perforce_settings():
     """
     If Source Control is connected in Unreal and prefs have been saved,
@@ -205,8 +211,10 @@ def get_cached_perforce_settings():
     [SourceControl.SourceControlSettings]
         Provider=Perforce
     """
+    ue_version = get_ue_version_as_float()
     port = user = client = ""
-    cfg_path = os.path.join(ue.Paths.project_saved_dir(), 'Config', 'Windows',
+    platform_token = 'Windows' if ue_version < 5.0 else 'WindowsEditor'
+    cfg_path = os.path.join(ue.Paths.project_saved_dir(), 'Config', platform_token,
                             'SourceControlSettings.ini')
     if not os.path.exists(cfg_path):
         return None
