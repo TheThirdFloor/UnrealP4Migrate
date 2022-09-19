@@ -1,0 +1,2 @@
+p4python==2020.1.2056111; python_version < '3.0'
+p4python>2020.1.2056111; python_version >= '3.0'
