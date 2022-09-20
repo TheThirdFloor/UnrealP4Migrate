@@ -36,8 +36,9 @@ def main():
 
 	# TODO: Print subprocess output to Unreal console
 	ret_code = subprocess.call(command)
+	print("Return code: {}".format(ret_code))
 
-	if ret_code == "0":
+	if str(ret_code) == "0":
 		print("Requirements installed successfully.")
 		return True
 	print("Error installing requirements...")
