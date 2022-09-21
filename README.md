@@ -32,3 +32,7 @@ Review the list of Game Dependencies and ensure it contains what you want to mig
 
 ### P4V
 After creating the branch mapping, you should open in P4V a workspace in the target stream. Open View->Branch Mappings. Right-click the Branch Mapping and click either "Merge/Integrate Files Using Branch Mapping" or "Copy Files Using Branch Mapping" depending on which is appropriate for the stream relationship. From here, review the potential Integration, resolve any conflicts, and submit. 
+
+[Create the branch mapping in Unreal.](Resources/docs/images/UnrealP4Migrate_demo1.gif)
+
+[Use P4V to merge or copy in the target stream.](Resources/docs/images/UnrealP4Migrate_demo2.gif)
