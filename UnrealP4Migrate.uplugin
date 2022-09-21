@@ -3,8 +3,8 @@
 	"Version": 1,
 	"VersionName": "1.0",
 	"FriendlyName": "UnrealP4Migrate",
-	"Description": "Facilitates content migrations by way of Perforce's copy up/merge down mechanism.",
-	"Category": "Other",
+	"Description": "Facilitates content migration by way of Perforce's copy up/merge down mechanism.",
+	"Category": "Source Control",
 	"CreatedBy": "Johnson Thomasson, The Third Floor Inc.",
 	"CreatedByURL": "https://thethirdfloorinc.com/",
 	"DocsURL": "",
@@ -14,4 +14,15 @@
 	"IsBetaVersion": true,
 	"IsExperimentalVersion": false,
 	"Installed": false
+	"Plugins":
+	[
+		{
+			"Name": "PythonScriptPlugin",
+			"Enabled": true
+		},
+		{
+			"Name": "EditorScriptingUtilities",
+			"Enabled": true
+		}
+	]
 }
