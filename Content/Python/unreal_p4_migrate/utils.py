@@ -90,7 +90,7 @@ def get_all_streams(p4_obj, depot):
     return streams
 
 
-def get_child_streams(p4_obj, depot, stream):
+def get_child_streams(p4_obj, depot, parent_stream):
     """
     Returns streams that are children of the Stream. Does not
     return children's children.
@@ -98,13 +98,12 @@ def get_child_streams(p4_obj, depot, stream):
     Args:
         p4_obj (P4.P4):
         depot (str):
-        stream (str): Stream path, e.g. "//SomeDepot/main"
+        parent_stream (str): Stream path, e.g. "//SomeDepot/main"
 
     Returns:
         List[str]: The stream path and stream name. See comment below.
     """
     streams = list()
-    parent_stream = "{}/{}".format(depot, stream)
 
     stream_data = p4_obj.run_streams("{}/...".format(depot))
     for stream_spec in stream_data:
