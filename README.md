@@ -1,6 +1,8 @@
 # UnrealP4Migrate
 An Unreal plugin to facilitate content migration between Perforce streams by way of Perforce's copy up/merge down mechanism.
 
+![Create the branch mapping in Unreal.](/Resources/docs/images/UnrealP4Migrate_demo1.gif)
+
 ## Unreal Compatibility
 Intended to be compatible with 4.27+. Development should be done in the lowest compatible version. 
 
@@ -31,8 +33,6 @@ Source stream will be auto-populated with the current stream of the workspace yo
 Review the list of Game Dependencies and ensure it contains what you want to migrate. If any dependencies are part of a plugin, a warning will list the Plugins at the bottom. These assets will not be migrated. Give your new branch mapping a sensible name. When you're ready, click Create Branch Mapping.
 
 ### P4V
-After creating the branch mapping, you should open in P4V a workspace in the target stream. Open View->Branch Mappings. Right-click the Branch Mapping and click either "Merge/Integrate Files Using Branch Mapping" or "Copy Files Using Branch Mapping" depending on which is appropriate for the stream relationship. From here, review the potential Integration, resolve any conflicts, and submit. 
+After creating the branch mapping, you should open in P4V a workspace in the target stream. Open View->Branch Mappings. Right-click the Branch Mapping and click either "Merge/Integrate Files Using Branch Mapping" or "Copy Files Using Branch Mapping" depending on which is appropriate for the stream relationship. From here, review the potential Integration, resolve any conflicts, and submit.
 
-[Create the branch mapping in Unreal.](Resources/docs/images/UnrealP4Migrate_demo1.gif)
-
-[Use P4V to merge or copy in the target stream.](Resources/docs/images/UnrealP4Migrate_demo2.gif)
+![Use P4V to merge or copy in the target stream.](/Resources/docs/images/UnrealP4Migrate_demo2.gif)
