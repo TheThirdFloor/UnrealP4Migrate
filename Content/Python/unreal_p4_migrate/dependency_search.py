@@ -29,17 +29,14 @@ class DependencySearch(object):
     def gather_all_dependencies(self):
         """
         From the provided asset paths, gathers all dependencies. These will
-        be sorted into engine, script, plugin, and game dependencies. Can be used
-        for processes other than packaging. In that case, pass prep_output=False to
-        skip disk checks.
+        be sorted into engine, script, plugin, and game dependencies.
 
         Returns:
             bool: Whether the gather completed successfully or not.
         """
         for asset_path in self.asset_paths:
-            print(asset_path)
             if not utils.is_game_asset(asset_path):
-                ue.log_error("{} is not in Game content. Can only find dependencies for Game content.")
+                ue.log_error("{} is not in Game content. Can only find dependencies for Game content.".format(asset_path))
                 return False
             self.game_dependencies.add(asset_path)
             self._add_dependencies_recursive(asset_path)
