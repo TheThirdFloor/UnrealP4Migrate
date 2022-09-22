@@ -247,14 +247,10 @@ def get_on_disk_path(asset_path):
     pkg_dir = ue.Paths.get_path(asset_path).replace("/Game", "").lstrip("/")
     pkg_name = ue.Paths.get_base_filename(asset_path)
 
-    print(CONTENT_DIR)
-    print(pkg_dir)
-
     for ext in UE_FILE_EXTENSIONS:
         disk_path = ue.Paths.combine([CONTENT_DIR,
                                       pkg_dir,
                                       pkg_name + ext])
-        print(disk_path)
         if os.path.exists(disk_path):
             return disk_path
     else:
