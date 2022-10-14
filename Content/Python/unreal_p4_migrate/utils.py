@@ -15,7 +15,7 @@ import P4
 import unreal as ue
 
 
-CONTENT_DIR = ue.Paths.project_content_dir()
+CONTENT_DIR = os.path.abspath(ue.Paths.project_content_dir()).replace("\\", "/")
 UE_FILE_EXTENSIONS = [".uasset", ".umap"]
 
 
