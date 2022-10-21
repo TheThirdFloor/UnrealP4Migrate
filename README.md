@@ -15,6 +15,8 @@ Clone or unzip into the Unreal project's plugin folder. Structure should look li
     - UnrealP4Migrate.uplugin
 - MyProject.uproject
 
+This plugin uses the embedded Python interpreter in Unreal and requires the `p4python` package be installed. The main widget will assist with installing this package if it's not available the first time it is run (see Python Packages below).
+
 ## Usage
 Run the Editor Utility Widget called UnrealP4Migrate. See [Editor Utility Widgets | Unreal Engine 4.27 Documentation](https://docs.unrealengine.com/4.27/en-US/InteractiveExperiences/UMG/UserGuide/EditorUtilityWidgets) for more info.
 
