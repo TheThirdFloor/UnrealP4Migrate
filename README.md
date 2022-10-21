@@ -4,7 +4,7 @@ UnrealP4Migrate is an Unreal plugin that facilitates content migration between P
 ![Create the branch mapping in Unreal.](/Resources/docs/images/UnrealP4Migrate_demo1.gif)
 
 ## Unreal Compatibility
-Intended to be compatible with 4.27+. Development should be done in the lowest compatible version. 
+Intended to be compatible with 4.27+.
 
 ## Install
 Clone or unzip into the Unreal project's plugin folder. Structure should look like: 
@@ -38,3 +38,11 @@ Review the list of Game Dependencies and ensure it contains what you want to mig
 After creating the branch mapping, you should open in P4V a workspace in the target stream. Open View->Branch Mappings. Right-click the Branch Mapping and click either "Merge/Integrate Files Using Branch Mapping" or "Copy Files Using Branch Mapping" depending on which is appropriate for the stream relationship. From here, review the potential Integration, resolve any conflicts, and submit.
 
 ![Use P4V to merge or copy in the target stream.](/Resources/docs/images/UnrealP4Migrate_demo2.gif)
+
+## Development
+Development should be done in the lowest compatible version, which is at the time of this writing, 4.27. 
+
+For now, we are trying to maintain this as a Content-only plugin, meaning it contains no C++ source code. Because it is editor-only, it uses a combination of Editor Utility Widgets and Python to do its work. This makes deployment simple.
+
+### Python
+Python code should be compatible with Python 2.7 and Python 3.7+ until support for Unreal 4.27 is dropped.
