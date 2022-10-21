@@ -1,5 +1,5 @@
 # UnrealP4Migrate
-An Unreal plugin to facilitate content migration between Perforce streams by way of Perforce's copy up/merge down mechanism.
+UnrealP4Migrate is an Unreal plugin that facilitates content migration between Perforce streams by way of Perforce's copy up/merge down mechanism. It addresses a common problem in stream-based Perforce scenarios, where merging in P4V by selecting a folder either merges more files than desired to the target stream, adding clutter and using unneeded disk space, or not enough, leaving missing dependencies in Unreal. This Unreal plugin crawls dependencies in Unreal to determine the precise list of files to migrate, then builds a Perforce Branch Mapping to allow easy integration to the target stream in P4V.
 
 ![Create the branch mapping in Unreal.](/Resources/docs/images/UnrealP4Migrate_demo1.gif)
 
