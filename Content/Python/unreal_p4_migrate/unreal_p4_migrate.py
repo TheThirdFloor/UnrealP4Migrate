@@ -145,6 +145,8 @@ class UnrealP4Migrate(object):
         mapping = self._make_mapping(target_stream, remap_key, remap_value)
         if dry_run:
             ue.log("Branch mapping to create: \n{}".format("\n".join(mapping)))
+            return 
+            
         try:
             branch = self.p4_obj.fetch_branch(mapping_name)
             branch["View"] = mapping
