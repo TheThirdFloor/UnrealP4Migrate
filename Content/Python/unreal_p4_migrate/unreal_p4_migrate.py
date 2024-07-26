@@ -81,7 +81,7 @@ class UnrealP4Migrate(object):
         self.dependency_search = DependencySearch(asset_paths)
         self.dependency_search.gather_all_dependencies()
 
-    def _make_mapping(self, target_stream):
+    def _make_mapping(self, target_stream, remap_key, remap_value):
         """
         Iterates over the list of assets to merge,
         finds their path on disk, then finds the depot path,
@@ -94,6 +94,8 @@ class UnrealP4Migrate(object):
 
         Args:
             List[str]:
+            remap_key (str): Key to remap in the target stream
+            remap_value (str): Value to remap to in the target stream
 
         Returns:
             List[str]
@@ -112,25 +114,39 @@ class UnrealP4Migrate(object):
                 ue.log_warning("{} does not exist on the depot".format(source))
                 continue
             target = on_disk.replace(workspace_root, target_stream)
+            if remap_key and remap_value:
+                target = target.replace(remap_key, remap_value)
             mapping.append("{} {}".format(source, target))
 
         return mapping
 
-    def create_branch_mapping(self, mapping_name, target_stream):
+    def create_branch_mapping(
+            self,
+            mapping_name,
+            target_stream,
+            dry_run=False,
+            remap_key="",
+            remap_value="",
+    ):
         """
 
         Args:
             mapping_name (str): What to call the new branch mapping
             target_stream (str): e.g. "//SomeDepot/somestream"
-
-        Returns:
-
+            dry_run (bool): If True, will print the mapping to the output log,
+                but not create it in Perforce.
+            remap_key (str): Key to remap in the target stream
+            remap_value (str): Value to remap to in the target stream
         """
         if not self.dependency_search:
             ue.log_error("Can't create branch mapping. Dependencies not yet gathered.")
             return
 
-        mapping = self._make_mapping(target_stream)
+        mapping = self._make_mapping(target_stream, remap_key, remap_value)
+        if dry_run:
+            ue.log("Branch mapping to create: \n{}".format("\n".join(mapping)))
+            return 
+            
         try:
             branch = self.p4_obj.fetch_branch(mapping_name)
             branch["View"] = mapping
